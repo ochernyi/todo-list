@@ -25,13 +25,13 @@
       <td>{{ task.date }}</td>
       <td>{{ task.deadline }}</td>
       <td>{{ task.is_done }}</td>
-      <td><a href="#" class="btn btn-primary link-to-page">Update</a></td>
-      <td><a href="#" class="btn btn-danger link-to-page">Delete</a></td>
+      <td><a href="{% url 'todo_list:task-update' pk=task.id %}" class="btn btn-primary link-to-page">Update</a></td>
+      <td><a href="{% url 'todo_list:task-delete' pk=task.id %}" class="btn btn-danger link-to-page">Delete</a></td>
       <td>
         {% if task.is_done %}
-          <a href="#" class="btn btn-outline-secondary link-to-page">Undo</a>
+          <a href="{% url 'todo_list:switch-task-is-done' pk=task.id %}" class="btn btn-outline-secondary link-to-page">Undo</a>
         {% else %}
-          <a href="#" class="btn btn-outline-success link-to-page">Complete</a>
+          <a href="{% url 'todo_list:switch-task-is-done' pk=task.id %}" class="btn btn-outline-success link-to-page">Complete</a>
         {% endif %}
       </td>
       </tr>
