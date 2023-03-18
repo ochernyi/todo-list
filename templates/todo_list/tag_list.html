@@ -20,8 +20,8 @@
       {% for tag in tag_list %}
       <tr>
         <td>{{ tag }}</td>
-        <td><a href="#" class="btn btn-primary link-to-page">Update</a></td>
-        <td><a href="#" class="btn btn-danger link-to-page">Delete</a></td>
+        <td><a href="{% url 'todo_list:tag-update' pk=tag.id %}" class="btn btn-primary link-to-page">Update</a></td>
+        <td><a href="{% url 'todo_list:tag-delete' pk=tag.id %}" class="btn btn-danger link-to-page">Delete</a></td>
       </tr>
 
     {% endfor %}
