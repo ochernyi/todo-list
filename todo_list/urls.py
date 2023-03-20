@@ -9,7 +9,7 @@ from todo_list.views import (
     TagCreateView,
     TagUpdateView,
     TagDeleteView,
-    switch_task_is_done,
+    TaskSwitcher,
 )
 
 urlpatterns = [
@@ -19,7 +19,7 @@ urlpatterns = [
     path("task/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete"),
     path(
         "task/<int:pk>/switch-task-is-done/",
-        switch_task_is_done,
+        TaskSwitcher.as_view(),
         name="switch-task-is-done",
     ),
     path("tags/", TagListView.as_view(), name="tag-list"),
