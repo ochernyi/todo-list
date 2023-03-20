@@ -57,7 +57,7 @@ class TagDeleteView(generic.DeleteView):
 class TaskSwitcher(View):
 
     @staticmethod
-    def get(request, pk):
+    def get(request, pk: int) -> HttpResponseRedirect:
         task = Task.objects.get(id=pk)
         task.is_done = not task.is_done
         task.save()
