@@ -11,7 +11,7 @@
   <table class="table">
     <tr>
       <th>Task</th>
-      <th>Date</th>
+      <th>Date of creation</th>
       <th>Dead line</th>
       <th>Done</th>
       <th>Update</th>
@@ -21,7 +21,7 @@
 
     {% for task in task_list %}
       <tr>
-      <td><a href="#">{{ task.content }}</a></td>
+      <td><h5>{{ task.content }}</h5></td>
       <td>{{ task.date }}</td>
       <td>{{ task.deadline }}</td>
       <td>{{ task.is_done }}</td>

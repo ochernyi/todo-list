@@ -21,7 +21,7 @@ class TaskCreateView(generic.CreateView):
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskForm
     success_url = reverse_lazy("todo_list:todo")
 
 
@@ -58,6 +58,8 @@ def switch_task_is_done(request, pk):
     task = Task.objects.get(id=pk)
     if task.is_done:
         task.is_done = False
+        task.save()
     else:
         task.is_done = True
-    return HttpResponseRedirect(reverse_lazy("todo_list:todo", args=[pk]))
+        task.save()
+    return HttpResponseRedirect(reverse_lazy("todo_list:todo"))
